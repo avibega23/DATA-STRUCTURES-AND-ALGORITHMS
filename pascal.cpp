@@ -16,7 +16,9 @@ int main()
 {
     int r, c;
     cin >> r >> c;
-    int i = funtionNcR(r - 1, c - 1);
-    cout << i << endl;
+    for(int i = 0; i<r;i++)
+        {
+            cout << funtionNcR(r-1,i) << " ";
+        }
     return 0;
 }

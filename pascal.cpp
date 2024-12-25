@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int funtionNcR(int n, int r)
+int funtionNcR(int n,int r)
 {
     int sum = 1;
     for (int i = 0; i < r; i++)
@@ -14,11 +14,16 @@ int funtionNcR(int n, int r)
 
 int main()
 {
-    int r, c;
-    cin >> r >> c;
-    for(int i = 0; i<r;i++)
+    int r;
+    cin >> r ;
+    for(int i = 1; i<=r;i++)
+    {
+        for (int j = 1; j <= i; j++)
         {
-            cout << funtionNcR(r-1,i) << " ";
+            cout << funtionNcR(i-1,j-1) << " ";
         }
+        cout << endl;
+    }
+    
     return 0;
 }

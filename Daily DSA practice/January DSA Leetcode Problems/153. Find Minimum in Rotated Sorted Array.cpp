@@ -10,6 +10,11 @@ public:
 
         while (low <= high)
         {
+            if (nums[low] <= nums[high])
+            {
+                mini = min(mini, nums[low]);
+                break;
+            }
             int mid = low + (high - low) / 2;
 
             if (nums[mid] <= nums[high])

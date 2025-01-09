@@ -34,4 +34,4 @@ public:
             return -1;
         }
     }
-};
+};  

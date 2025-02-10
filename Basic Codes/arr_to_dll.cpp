@@ -82,7 +82,7 @@ Node* deleteTail(Node* head)
 
 int main()
 {
-	vector<int> arr = {}; 
+	vector<int> arr = {1,2,3,4,5,6}; 
 
 	Node* head = convertArrToDLL(arr);
 	

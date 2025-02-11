@@ -79,14 +79,20 @@ Node* deleteTail(Node* head)
 	delete temp;
 	return head;
 }
-
+Node* insertFirstHead(Node* head,int x)
+{
+	Node* newHead = new Node(x,head,nullptr);
+	head->prev = newHead;
+	head = newHead;
+	return head;
+}
 int main()
 {
 	vector<int> arr = {1,2,3,4,5,6}; 
 
 	Node* head = convertArrToDLL(arr);
 	
-	head = deleteTail(head); 	
+	head = insertFirstHead(head,99); 	
 
 	printDll(head);
 

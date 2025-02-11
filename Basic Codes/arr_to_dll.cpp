@@ -86,13 +86,50 @@ Node* insertFirstHead(Node* head,int x)
 	head = newHead;
 	return head;
 }
+Node* inserBeforeTail(Node* head,int x)
+{
+	
+	Node* tail = head;
+	while(tail->next!=nullptr)
+	{
+		tail = tail->next;
+	}
+	Node* back = tail->prev;
+	Node* temp = new Node(x,tail,back);
+	back->next = temp;
+	tail->prev = temp;
+
+	return head;
+}
+
+Node* insertAtK(Node* head,int k,int x)
+{
+	if(k == 1) insertFirstHead(head,x);
+	else
+	{
+		Node* temp = head;
+		int cnt = 0;
+		while(temp->next!=nullptr)
+		{
+			
+			temp = temp->next;
+			cnt++;
+			if(cnt == k) break;
+		}
+		Node* back = temp->prev;
+		Node* newNode = new Node(x,temp,back);
+		back->next = newNode;
+		temp->prev = newNode;
+	}
+	return head;
+}
 int main()
 {
 	vector<int> arr = {1,2,3,4,5,6}; 
 
 	Node* head = convertArrToDLL(arr);
 	
-	head = insertFirstHead(head,99); 	
+	head = insertAtK(head,7,10); 	
 
 	printDll(head);
 

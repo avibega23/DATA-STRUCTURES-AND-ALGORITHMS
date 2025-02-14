@@ -1,7 +1,7 @@
  #include <bits/stdc++.h>
 using namespace std;
  int maximumSum(vector<int>& nums) {
-        vector<pair<int,int>>hash(nums.size());
+        vector<pair<int,int>>hash;
 
         for(int i = 0;i < nums.size() ; i++)
         {

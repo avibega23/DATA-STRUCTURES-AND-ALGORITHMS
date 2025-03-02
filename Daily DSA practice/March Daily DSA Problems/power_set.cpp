@@ -1,6 +1,6 @@
 void helper(string s,vector<string>&data,string ans,int index)
 	    {
-	        if(index>s.size())
+	        if(index>=s.size())
 	        {
 	            if(ans.size()>0)
 	            data.push_back(ans);

@@ -3,10 +3,23 @@ using namespace std;
 
 int main()
 {
-	for(int i = 0;i<5;++i)
+	int x = 0;
+	int n;
+	cin >> n;
+	while(n--)
 	{
-		cout << i << endl;
+		string s;
+		cin >> s;
+		if(s[0]=='+'||s[s.size()-1]=='+')
+		{
+			x++;
+		}
+		else
+		{
+			x--;
+		}
 	}
+	cout << x << endl;
 	
 	return 0;
 }

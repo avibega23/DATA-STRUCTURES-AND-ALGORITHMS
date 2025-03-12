@@ -3,23 +3,19 @@ using namespace std;
 
 int main()
 {
-	int x = 0;
-	int n;
-	cin >> n;
-	while(n--)
+	string s;
+	cin >> s;
+	for(int i = 0;i<s.size();i++)
 	{
-		string s;
-		cin >> s;
-		if(s[0]=='+'||s[s.size()-1]=='+')
+		if(i == 0&&s[i]=='9')
 		{
-			x++;
+			continue;
 		}
-		else
+		if(s[i]-'0'>4)
 		{
-			x--;
+			s[i] = ('9'-s[i])+'0';
 		}
 	}
-	cout << x << endl;
-	
+	cout << s ;
 	return 0;
 }

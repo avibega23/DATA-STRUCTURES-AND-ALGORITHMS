@@ -3,22 +3,22 @@ using namespace std;
 
 int main()
 {
-	 int sum = 0;
-	 vector<int>arr = {3,1,2,4};
-        for(int i = 0;i<arr.size();i++)
+	 vector<int>arr = {3,1,2,4,6,5};
+     for(int i = 1;i<arr.size();i++)
+     {
+        int j = i;
+        while(j>=i)
         {
-            for(int j = i;j<arr.size();j++)
+            if(arr[j]<arr[j-1])
             {
-                vector<int> data(arr.begin()+i,arr.begin()+j);
-
-                int mini = data[0];
-                for(int k = 1;k<data.size();k++)
-                {
-                    mini = min(mini,data[k]);
-                }
-                sum += mini;
+                swap(arr[j-1],arr[j]);
             }
+            j--;
         }
-        cout << sum;
+     }
+     for(auto it:arr)
+     {
+        cout << it << " ";
+     }
 	return 0;
 }

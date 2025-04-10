@@ -11,15 +11,13 @@ int main() {
     for(int i = 0;i<nums.size();i++)
     {
         cin >> nums[i];
+        break;
     }
     string ans = "EASY";
     for(auto it:nums)
     {
-        if(it == 1) 
-        {
-            ans = "HARD";
-            break;
-        }
+        if(it == 1) ans = "HARD";
+        break;
     }
     cout << ans;
     return 0;

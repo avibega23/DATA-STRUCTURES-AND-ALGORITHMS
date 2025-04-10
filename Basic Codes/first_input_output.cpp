@@ -1,29 +1,31 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main()
-{
-   vector<int>arr = {2,5,6,5,4,4,4,3,2,4};
-   int k  = 14;
-   int l = 0;
-   int r = 0;
-   int maxLen = 0;
-   int sum = 0;
-   while(r<arr.size())
-   {
-        sum += arr[r];
-        if(sum<=k)
-        {
-            maxLen = max(maxLen,r-l+1);
-        }
-        else
-        {
-            sum-=arr[l];
-            l++;
+class Car{
 
+        string type;
+    public:
+        Car()
+        {
+            type = "petrol";
         }
-        r++;
-   }
-   cout << maxLen << endl;
-   return 0;
+        Car(string inputValue)
+        {
+            type = inputValue;
+        }
+        void display()
+        {
+            cout << type;
+        }
+};
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    Car sunnyCar;
+    Car aviCar("Electric");
+    aviCar.display();
+    
+
+    return 0;
 }

@@ -5,22 +5,28 @@ int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    int n ;
-    cin >> n;
-    vector<int>nums(n);
-    for(int i = 0;i<nums.size();i++)
+    int n;
+    cin>>n;
+    string ans = "YES";
+    if(n == 0)
     {
-        cin >> nums[i];
+        ans = "NO";
     }
-    string ans = "EASY";
-    for(auto it:nums)
+    int cnt = 0;
+    while(n!=0)
     {
-        if(it == 1) 
+        if(n%10!=7&&n%10!=4)
         {
-            ans = "HARD";
-            break;
+            ans = "NO";
         }
+        cnt++;
+        n/=10;
+    }
+    if(cnt == 4 || cnt == 7)
+    {
+        ans = "YES";
     }
     cout << ans;
+    
     return 0;
 }

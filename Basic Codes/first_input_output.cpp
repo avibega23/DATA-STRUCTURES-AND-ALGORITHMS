@@ -4,20 +4,22 @@ using namespace std;
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
-
+    cin.ignore();
     int t;
     cin >> t;
     while(t--)
     {
         int n;
         cin >> n;
-        vector<int>nums(2*n);
-        for(int i = 0;i<2*n;i++)
+        int med = 0;
+        if(n%2 == 0) med = n/2;
+        else med =
+        int sum = floor(n/2) + n;
+        while(n!=0)
         {
-            cin >> nums[i];
+            sum = (sum+n)/2;
+            n--;
         }
-        sort(nums.begin(),nums.end());
-        int sum = nums[n]-nums[n-1];
         cout << sum << endl;
     }
 

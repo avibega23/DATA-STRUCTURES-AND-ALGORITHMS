@@ -6,25 +6,34 @@ int main() {
     cin.tie(nullptr);
     int t;
     cin >> t;
-    vector<int>nums(7);
-    int sum = 0;
-    for(int i = 0;i<7;i++)
+    string s;
+    cin >> s;
+    unordered_map<char,int>mpp;
+    for(int i = 0;i<s.size();i++)
     {
-        cin >> nums[i];
-        sum += nums[i];
+        mpp[s[i]]++;
     }
-    int rem = t%sum;
-    if(rem == 0) rem = sum;
-
-    for(int i = 0;i<nums.size();i++)
+    int maxi = mpp[s[0]];
+    for(auto it:mpp)
     {
-        rem -= nums[i];
-        if(rem <= 0)
+        if(it.second != maxi)
         {
-            cout << i+1;
-            break;
+            cout << -1 << endl;
+            return 0;
         }
     }
-
+     vector<char> chars;
+    for(auto &it : mpp) {
+        chars.push_back(it.first);
+    }
+    sort(chars.begin(), chars.end()); // sorting to maintain order
+    
+    string ans = "";
+    for(int i = 0; i < maxi; i++) {
+        for(char c : chars) {
+            ans += c;
+        }
+    }
+    cout << ans;
     return 0;
 }

@@ -8,29 +8,15 @@
         int t;
         cin >> t;
         
-        while(t--)
-        {
-            long long a,b,c;
-            cin >> a >> b >> c;
-           if(a < c)
-           {
-            cout << 1 << " ";
-           }
-           else
-           {
-            cout << -1 << " ";
-           }
-           if(b*a > c)
-           {
-            cout << b;
-           }
-           else
-           {
-            cout << -1;
-           }
-           cout << endl;
-        }
-        
+       int n = 789658964;
+       int ans = 0;
+       while(n!=0)
+       {
+        int rem = n%10;
+        ans = (ans*10) + rem;
+        n /= 10;
+       }
+        cout << ans;
 
         return 0;
     }

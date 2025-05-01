@@ -5,18 +5,30 @@
         ios::sync_with_stdio(false);
         cin.tie(0);
         cout.tie(0);
-        int n,m;
-        cin >> n >> m;
-        int mini =ceil(double(n)/2);
-        int cnt = -1;
-        for(int i = mini;i<=n;i++)
+        int n,t;
+        cin >> n >> t;
+        vector<int>nums(n-1);
+        for(int i = 0;i<n-1;i++)
         {
-            if(i%m == 0)
-            {
-                cnt = i;
-                break;
-            }
+            cin >> nums[i];
         }
-        cout << cnt;        
+        int i = 0;
+        while(i<t-1)
+        {
+           
+            i += nums[i];
+
+        }
+         if(i == t-1)
+        {
+            cout << "YES" << endl;
+            return 0;
+        }
+        else
+        {
+            cout << "NO" << endl;
+            return 0;
+            }
+
         return 0;
     }

@@ -6,54 +6,47 @@ int main() {
     cin.tie(0);
     cout.tie(0);
     
-    int t; cin >> t;
-    while(t--)
+    for(int i = 1;i<=11;i++)
     {
-        string has,pass;
-        cin >> pass >> has;
-
-        if(has.size()<pass.size())
+        if(i == 1 || i == 6 || i == 11)
         {
-            cout << "NO" << endl;
+            for(int j = 1;j<=11;j++)
+            {
+                if(j==1||j==6||j==11)
+                {
+                    if(j == 11)
+                    {
+                        cout << "+";
+                    }
+                    else
+                    cout << "+ ";
+                }
+                else
+                {
+                    cout << "- ";
+                }
+            }
         }
         else
         {
-            string ans = "NO";
-            unordered_map<char,int>passHash,hashHash;
-            for(auto it:pass)
+            for(int j = 1;j<=11;j++)
             {
-                passHash[it]++;
-            }
-
-            int i = 0,j = 0;
-            while(j<pass.size())
-            {
-                hashHash[has[j]]++;
-                j++;
-            }
-            if(passHash == hashHash)
-            {
-                ans = "YES";
-            }
-            else
-            {
-                while(j < has.size())
+                if(j == 1||j ==6||j==11)
                 {
-                    hashHash[has[i]]--;
-                    if(hashHash[has[i]]==0) hashHash.erase(has[i]);
-                    hashHash[has[j]]++;
-                    i++;
-                    j++;
-                    if(passHash == hashHash)
+                    if(i == 11)
                     {
-                        ans = "YES";
-                        break;
+                        cout << "|";
                     }
+                    else
+                    cout << "| ";
+                }
+                else
+                {
+                    cout << "  ";
                 }
             }
-            cout << ans << endl;
-        } 
-        
+        }
+        cout << endl;
     }
 
     return 0;

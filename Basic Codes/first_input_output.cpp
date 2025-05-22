@@ -1,42 +1,50 @@
 #include <bits/stdc++.h>
 using namespace std;
-void heapify(int arr[],int n,int i)
-{
-    int largest = i;
-    int left = 2*i+1;
-    int right = 2*i+2;
-
-    if(left < n && arr[left]>arr[largest])
-        largest = left;
-    if(right < n && arr[right]>arr[largest])
-        largest = right;
-
-    if(largest != i)
-    {
-        swap(arr[largest],arr[i]);
-        heapify(arr,n,largest);
-    }
-}
 
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(0);
     cout.tie(0);
     
-    int n;
-    cin >> n;
-    int arr[n];
-    for(int i = 0;i<n;i++)
+    string s1;
+    string s2;
+    getline(cin,s1);
+    getline(cin,s2);
+
+    int first = 0;
+    int second = 0;
+    int fH = 0;
+    int sH = 0;
+    for(int i = s1.size()-2;i<s1.size();i++)
     {
-        cin >> arr[i];
+        first = first*10+(s1[i]-'0');
+        fH = fH*10+(s1[i-3]-'0');
+        second = second*10+(s2[i]-'0');
+        sH = sH*10+(s2[i-3]-'0');
     }
-    for(int i = n/2;i>=0;i--)
+    int average;
+    int sAverage = (fH+sH)/2;
+    if(first == 0 && second == 0) average = 30;
+    else
     {
-        heapify(arr,n,i);
+        average = (first+second)/2;
     }
-    for(int i = 0;i<n;i++)
+    int j = s1.size()-1;
+    while(average != 0)
     {
-        cout << arr[i] << " ";
+        int rem = average%10;
+        average/=10;
+        s1[j] = '0'+rem;
+        j--;
     }
+    j = 1;
+    while(sAverage != 0)
+    {
+        int rem = sAverage%10;
+        sAverage/=10;
+        s1[j] = '0'+rem;
+        j--;
+    }
+    cout << s1 << endl;
     return 0;
 }

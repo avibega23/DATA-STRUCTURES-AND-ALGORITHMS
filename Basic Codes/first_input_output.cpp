@@ -6,31 +6,61 @@ int main() {
     cin.tie(0);
     cout.tie(0);
     
-    int h1,h2,m1,m2;
-    char c;
-    cin >> h1 >> c >> m1;
-    cin >> h2 >> c >> m2;
-    int min1 = (h1*60)+m1;
-    int min2 = (h2*60)+m2;
-    int middle = (min1+min2)/2;
-    if((middle/60)>9)
+    int n,m;
+    cin >> n >> m;
+    vector<vector<int>>A(n,vector<int>(m,1)),B(n,vector<int>(m));
+
+    for(int i = 0;i<n;i++)
     {
-        cout << middle/60;
-    }
-    else
-    {
-        cout << 0 << middle/60;
-    }
-    cout << ":";
-    if(middle%60>9)
-    {
-        cout << middle%60;
-    }
-    else
-    {
-        cout << 0 << middle%60;
+        for(int j = 0;j<m;j++)
+        {
+            cin >> B[i][j];
+            if(B[i][j]==0)
+            {
+                for(int k = 0;k<m;k++)
+                {
+                    A[i][k] = 0;
+                }
+                for(int k = 0;k<n;k++)
+                {
+                    A[k][j] = 0;
+                }
+            }
+        }
     }
 
+    for(int i = 0;i<n;i++)
+    {
+        for(int j = 0;j<m;j++)
+        {
+            if(B[i][j]==1)
+            {
+                int sum = 0;
+                for(int k = 0;k<n;k++)
+                {
+                    sum += A[k][j];
+                }
+                for(int k = 0;k<m;k++)
+                {
+                    sum += A[i][k];
+                }
+                if(sum == 0)
+                {
+                    cout << "NO";
+                    return 0;
+                }
+            }
+        }
+    }
+    cout << "YES" << endl;
+    for(int i = 0;i<n;i++)
+    {
+        for(int j = 0;j<m;j++)
+        {
+            cout << A[i][j] << " ";
+        }
+        cout << endl;
+    }
 
     return 0;
 }

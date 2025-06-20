@@ -60,3 +60,33 @@ class DisjointSet{
             }
         }
 };
+
+
+
+//this one for optimizations
+
+class DisjointSet {
+    public:
+    unordered_map<int, int> parent, size;
+
+    int findPar(int node) {
+        if (parent.find(node) == parent.end())
+            return parent[node] = node;
+        if (parent[node] == node)
+            return node;
+        return parent[node] = findPar(parent[node]);
+    }
+
+    void unionBySize(int u, int v) {
+        int ult_u = findPar(u);
+        int ult_v = findPar(v);
+        if (ult_u == ult_v) return;
+        if (size[ult_u] < size[ult_v]) {
+            parent[ult_u] = ult_v;
+            size[ult_v] += size[ult_u];
+        } else {
+            parent[ult_v] = ult_u;
+            size[ult_u] += size[ult_v];
+        }
+    }
+};

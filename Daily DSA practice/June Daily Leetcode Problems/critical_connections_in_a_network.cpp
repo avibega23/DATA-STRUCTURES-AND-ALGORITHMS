@@ -1,28 +1,6 @@
 class Solution {
 public:
-    void dfs(int node,int parent,vector<vector<int>>&adj,vector<int>&vis,vector<int>&time,vector<int>&minTime,vector<vector<int>>&ans,int & cnt)
-    {
-        vis[node] = 1;
-        time[node] = minTime[node] = cnt++;
-
-        for(auto it:adj[node])
-        {
-            if(it == parent) continue;
-            if(!vis[it])
-            {
-                dfs(it,node,adj,vis,time,minTime,ans,cnt);
-                minTime[node] = min(minTime[node],minTime[it]);
-                if(time[node]<minTime[it])
-                {
-                    ans.push_back({node,it});
-                }
-            }
-            else
-            {
-                minTime[node] = min(minTime[node],time[it]);
-            }
-        }
-    }
+    
     vector<vector<int>> criticalConnections(int n, vector<vector<int>>& connections) {
         vector<vector<int>>ans;
         vector<vector<int>>adj(n);

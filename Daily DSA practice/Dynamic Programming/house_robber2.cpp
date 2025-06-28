@@ -22,3 +22,40 @@ public:
         return max(case1, case2);
     }
 };
+
+
+//space optimization
+
+class Solution {
+public:
+
+    int rob(vector<int>& nums) {
+        int n = nums.size();
+        if (n == 1) return nums[0];
+
+        int prev = nums[0];
+        int prev1 = 0;
+        for(int i = 1;i<nums.size()-1;i++)
+        {
+            int take = nums[i] + prev1; 
+            int nonTake = prev;
+            prev1 = prev;
+            prev = max(take,nonTake);
+        }
+        int case1 = prev;
+
+        prev = nums[1];
+        prev1 = 0;
+        for(int i = 2;i<nums.size();i++)
+        {
+            int take = nums[i] + prev1; 
+            int nonTake = prev;
+            prev1 = prev;
+            prev = max(take,nonTake);
+        }
+        int case2 = prev;
+
+        return max(case1, case2);
+    }
+};
+

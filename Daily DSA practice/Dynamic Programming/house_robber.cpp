@@ -34,3 +34,22 @@ public:
         return dp[nums.size()-1];
     }
 };
+
+
+//space optimized
+
+class Solution {
+public:
+    int rob(vector<int>& nums) {
+        int prev = nums[0];
+        int prev1 = 0;
+        for(int i = 1;i<nums.size();i++)
+        {
+            int take = nums[i] + prev1; 
+            int nonTake = prev;
+            prev1 = prev;
+            prev = max(take,nonTake);
+        }
+        return prev;
+    }
+};

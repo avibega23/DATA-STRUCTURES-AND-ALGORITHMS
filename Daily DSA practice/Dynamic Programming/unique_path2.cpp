@@ -1,26 +1,8 @@
 class Solution {
 public:
-    int recurse(int m,int n,int i,int j,vector<vector<int>>&dp)
-    {
-        if(dp[i][j]!=-1) return dp[i][j];
-
-        if(i == m-1 && j == n-1)
-        {
-            return 1;
-        }
-
-        int sum = 0;
-
-        if(i+1 < m) sum += recurse(m,n,i+1,j,dp);
-
-        if(j+1 < n) sum += recurse(m,n,i,j+1,dp);
-
-        return dp[i][j] = sum;
-
-    }
-
-    //space optimized
-    int uniquePaths(int m, int n) {
+    int uniquePathsWithObstacles(vector<vector<int>>& nums) {
+        int m = nums.size();
+        int n = nums[0].size();
 
         vector<int>prev(n,0);
         
@@ -30,6 +12,7 @@ public:
 
             for(int j = 0; j < n; j++)
             {
+                if(nums[i][j]==1) continue;
                 if(i == 0 && j == 0)
                 {
                     temp[j] = 1;

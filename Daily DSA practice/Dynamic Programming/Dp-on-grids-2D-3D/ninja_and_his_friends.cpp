@@ -87,3 +87,53 @@ int maximumChocolates(int r, int c, vector<vector<int>> &grid) {
     return dp[0][0][c-1];
     
 }
+
+//space optimized
+
+#include <bits/stdc++.h> 
+int maximumChocolates(int r, int c, vector<vector<int>> &grid) {
+    // Write your code here.
+    vector<vector<int>>dp(c,vector<int>(c,-1));
+    for(int i = r-1;i>=0;i--)
+    {
+        vector<vector<int>>temp(c,vector<int>(c,-1));
+        for(int j1 = 0;j1<c;j1++)
+        {
+            for(int j2 = 0;j2<c;j2++)
+            {
+                if(i == r-1)
+                {
+                    if(j1 == j2) dp[j1][j2] = grid[i][j1];
+                    else dp[j1][j2] = grid[i][j1] + grid[i][j2];
+                    continue;
+                }
+
+                int maxi = INT_MIN;
+                
+                for(int d1 = -1;d1<2;d1++)
+                {
+                    for(int d2 = -1;d2 < 2;d2++)
+                    {
+                        int nj1 = d1+j1;
+                        int nj2 = d2+j2;
+
+                        int ans;
+                        if(nj1 >=0 && nj1 < c && nj2 >= 0 && nj2 < c)
+                        {
+                            if(j1 == j2) ans = grid[i][j1] + dp[nj1][nj2];
+                            else ans = grid[i][j1] + grid[i][j2] + dp[nj1][nj2];
+
+                            maxi = max(ans,maxi);
+                        }
+                        
+                    }
+                }
+                temp[j1][j2] = maxi;
+            }
+        }
+        if(i != r-1)
+        dp = temp;
+    }
+    return dp[0][c-1];
+    
+}

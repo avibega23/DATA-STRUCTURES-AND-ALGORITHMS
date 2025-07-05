@@ -64,5 +64,4 @@ bool subsetSumToK(int n, int k, vector<int> &arr) {
         }
     }
 
-    return dp[n-1][k];
 }

@@ -53,7 +53,7 @@ bool subsetSumToK(int n, int k, vector<int> &arr) {
         dp[0][arr[0]] = 1;
     for(int index = 1;index<n;index++)
     {
-        for(int target = 1;target <= k;target++)
+        for(int target = 0;target <= k;target++)
         {
             bool nonPick = dp[index-1][target];
             bool pick = false;

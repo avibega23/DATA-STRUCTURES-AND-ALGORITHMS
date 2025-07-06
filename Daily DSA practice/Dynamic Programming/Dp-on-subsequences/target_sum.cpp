@@ -1,3 +1,4 @@
+//Recursive solution with memoization
 class Solution {
 public:
     int recurse(vector<int>&nums,int ind,int target,int s,vector<vector<int>>&dp,int totSum)
@@ -27,3 +28,5 @@ public:
         return recurse(nums,nums.size()-1,target,0,dp,sum);
     }
 };
+
+//Tabulation

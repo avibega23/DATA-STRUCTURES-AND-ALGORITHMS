@@ -1,3 +1,4 @@
+//https://codeforces.com/problemset/problem/1901/A
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -13,29 +14,24 @@ int32_t main() {
     cin >> t;
     while(t--)
     {
-    	int n,k;
-    	cin >> n >> k;
+    	int n,x;
+    	cin >> n >> x;
 
  		vector<int>arr(n);
  		for(int i = 0;i<n;i++)
  		{
  			cin >> arr[i];
  		}
- 		vector<int>temp = arr;
- 		sort(temp.begin(),temp.end());
-
- 		if(arr == temp)
+ 		int maxi = 0;
+ 		for(int i = 0;i<n;i++)
  		{
- 			cout << "YES" << endl;
- 			continue;
+ 			if(i == 0) maxi = max(maxi,arr[i]);	
+ 			if(i == n-1) maxi = max(maxi,(x-arr[i])*2);
+ 			else maxi = max(maxi,arr[i+1]-arr[i]);
  		}
- 		if(k == 1)
- 		{
- 			cout << "NO" << endl;
- 			continue;
- 		}
- 		if(k>=2) cout << "YES" << endl;
-
+ 		cout << maxi << endl;
     }
     return 0;
 }
+
+

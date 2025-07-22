@@ -1,5 +1,5 @@
 //https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/
-
+//recursion + memoization
 class Solution {
 public:
     int recurse(vector<int>&prices,int ind,bool buy,int cnt,vector<vector<vector<int>>>&dp)

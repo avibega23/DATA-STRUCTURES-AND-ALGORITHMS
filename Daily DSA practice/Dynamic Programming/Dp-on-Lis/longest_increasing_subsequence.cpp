@@ -39,4 +39,47 @@ public:
         return *max_element(dp.begin(), dp.end());
     }
 };
+// binary search
+class Solution {
+public:
+    int upper_bound(vector<int> &arr, int x) {
+    int n = arr.size();
+    int low = 0, high = n - 1;
+    int ans = n;
 
+        while (low <= high) {
+            int mid = (low + high) / 2;
+            // maybe an answer
+            if (arr[mid] >= x) {
+                ans = mid;
+                //look for smaller index on the left
+                high = mid - 1;
+            }
+            else {
+                low = mid + 1; // look on the right
+            }
+        }
+        return ans;
+    }
+    int lengthOfLIS(vector<int>& nums) {
+        vector<int>ans;
+        int n = nums.size();
+        
+        for(int i = 0;i<n;i++)
+        {
+            if(ans.empty() || nums[i]>ans[ans.size()-1])
+            {
+                ans.push_back(nums[i]);
+            }
+            else
+            {
+                int num = upper_bound(ans,nums[i]);
+                // cout << num << " "; 
+                if(num < ans.size())
+                ans[num] = nums[i];
+            }
+        }
+
+        return ans.size();
+    }
+};

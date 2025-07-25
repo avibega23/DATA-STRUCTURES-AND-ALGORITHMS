@@ -1,5 +1,5 @@
 //https://leetcode.com/problems/largest-divisible-subset/description/
-
+//recursion + memoization
 class Solution {
 public:
     vector<int> recurse(vector<int>&nums,int ind,int parent,vector<vector<vector<int>>>&dp)

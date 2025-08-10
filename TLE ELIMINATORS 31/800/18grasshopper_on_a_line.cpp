@@ -1,5 +1,3 @@
-//https://codeforces.com/problemset/problem/1837/A
-
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -24,7 +22,6 @@ void solve() {
     {
         cout << 1 << endl;
         cout << x << endl;
-    }
     
 }
 
